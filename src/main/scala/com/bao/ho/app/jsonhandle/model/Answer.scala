@@ -11,7 +11,8 @@ case class Answer(id: Int,
                   labelName: String,
                   status: ResponseStatus,
                   questions: List[Question],
-                  question: Question
+                  question: Question,
+                  role: Role
                  )
 
 object Answer {
@@ -22,7 +23,8 @@ object Answer {
       JsonReads.labelNameReads and
       JsonReads.statusReads and
       JsonReads.questionsReads and
-      JsonReads.questionReads
+      JsonReads.questionReads and
+      JsonReads.roleReads
     ) (Answer.apply _)
 
   val answerWrites: Writes[Answer] = (
@@ -31,7 +33,8 @@ object Answer {
       JsonWrites.labelNameWrites and
       JsonWrites.statusWrites and
       JsonWrites.questionsWrites and
-      JsonWrites.questionWrites
+      JsonWrites.questionWrites and
+      JsonWrites.roleWrites
     ) (unlift(Answer.unapply))
 
   implicit val answerFormat: Format[Answer] =

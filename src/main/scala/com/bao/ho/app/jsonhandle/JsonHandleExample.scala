@@ -3,16 +3,17 @@ package com.bao.ho.app.jsonhandle
 import java.util.UUID
 
 import com.bao.ho.app.jsonhandle.model.ResponseStatus.SUCCESS
+//import com.bao.ho.app.jsonhandle.model.Role.{Admin, Contributor}
 import com.bao.ho.app.jsonhandle.model._
 import play.api.libs.json._
 
 object JsonHandleExample {
 
   def main(args: Array[String]): Unit = {
-    val q1 = Question(1, UUID.randomUUID())
-    val q2 = Question(2, UUID.randomUUID())
+    val q1 = Question(1, UUID.randomUUID(), Admin)
+    val q2 = Question(2, UUID.randomUUID(), Contributor("tookitaki"))
     val qs = List[Question](q1, q2)
-    val a1: Answer = Answer(1, UUID.randomUUID(), "blue", SUCCESS, qs, q1)
+    val a1: Answer = Answer(1, UUID.randomUUID(), "blue", SUCCESS, qs, q1, Admin)
     println(q1)
     println(q2)
     println(qs)

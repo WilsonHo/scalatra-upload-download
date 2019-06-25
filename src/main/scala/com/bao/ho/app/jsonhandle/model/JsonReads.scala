@@ -11,4 +11,6 @@ object JsonReads {
   lazy val uuidReads: Reads[UUID] = (__ \ "uuid").read[UUID]
   lazy val questionReads: Reads[Question] = (__ \ "question").read[Question]
   lazy val questionsReads: Reads[List[Question]] = (__ \ "questions").read[List[Question]]
+  lazy val roleReads: Reads[Role] = (__ \ "role").read[Role]
+  lazy val rolesReads: Reads[List[Role]] = (__ \ "roles").read[List[Role]]
 }
